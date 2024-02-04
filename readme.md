@@ -1,4 +1,4 @@
-### Event Booking API 
+### Event Booking API in Go and GIN
 
 ## Supported Routes
 - `GET` `/events`
