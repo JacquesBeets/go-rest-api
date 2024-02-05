@@ -15,7 +15,7 @@ type Event struct {
 	UserID      int       `json:"userId"`
 }
 
-var events = []Event{}
+
 
 func (e Event) Save() error {
 	query := `
@@ -35,6 +35,24 @@ func (e Event) Save() error {
 	return err
 }
 
-func GetEvents() []Event {
-	return events
+func GetEvents() ([]Event, error) {
+	query := `SELECT * FROM events`
+	rows, err := db.DB.Query(query)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+
+	var events []Event
+
+	for rows.Next() {
+		var event Event
+		err = rows.Scan(&event.ID, &event.Title, &event.Description, &event.Location, &event.DateTime, &event.UserID)
+		if err != nil {
+			return nil, err
+		}
+		events = append(events, event)
+	}
+
+	return events, nil
 }
