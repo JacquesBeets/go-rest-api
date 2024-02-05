@@ -21,6 +21,8 @@ func (e Event) Save() error {
 	query := `
 	INSERT INTO events (title, description, location, date_time, user_id) 
 	VALUES (?, ?, ?, ?, ?)`
+	// Prepare() prepares a SQL statement - this can lead to better performance if the same statement is executed multiple times (potentially with different data for its placeholders).
+	// This is only true, if the prepared statement is not closed (stmt.Close()) in between those executions. In that case, there wouldn't be any advantages.
 	stmt, err := db.DB.Prepare(query)
 	if err != nil {
 		return err
