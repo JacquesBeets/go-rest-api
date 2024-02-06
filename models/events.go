@@ -26,11 +26,11 @@ func (e Event) Save() error {
 		return err
 	}
 	defer stmt.Close()
-	res, err := stmt.Exec(e.Title, e.Description, e.Location, e.DateTime, e.UserID)
+	result, err := stmt.Exec(e.Title, e.Description, e.Location, e.DateTime, e.UserID)
 	if err != nil {
 		return err
 	}
-	id, err := res.LastInsertId()
+	id, err := result.LastInsertId()
 	e.ID = id
 	return err
 }

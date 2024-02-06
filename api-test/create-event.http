@@ -1,17 +1,9 @@
-POST http://localhost:9090/events
-Content-Type: application/json
+POST http://localhost:9090/signup
+	Content-Type: application/json
+	# Email    string `json:"email" binding:"required"`
+	# Password string `json:"password" binding:"required"`
 
-	# ID          int       `json:"id"`
-	# Title       string    `json:"title" binding:"required"`
-	# Description string    `json:"description" binding:"required"`
-	# Location    string    `json:"location" binding:"required"`
-	# DateTime    time.Time `json:"date_time" binding:"required"`
-	# UserID      int       `json:"userId"`
-
-{
-    "title": "Event 1",
-    "description": "Event 1 Description",
-    "location": "Event 1 Location",
-    "date_time": "2021-07-01T00:00:00Z",
-    "userId": 1
-}
+	{
+		"email": "test@example.com",
+		"password": "password"
+	}
