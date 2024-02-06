@@ -7,7 +7,6 @@ import (
 )
 
 func main() {
-	// Code here
 	db.InitDB()
 	server := gin.Default()
 

@@ -19,5 +19,8 @@ func createUser(context *gin.Context) {
 		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	context.JSON(http.StatusCreated, gin.H{"message": "User created successfully", "user": user})
+	context.JSON(http.StatusCreated, gin.H{"message": "User created successfully", "user": map[string]interface{}{
+		"id":    user.ID,
+		"email": user.Email,
+	}})
 }
