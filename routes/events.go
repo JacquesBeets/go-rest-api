@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jacquesbeets/go-rest-api/models"
+	"github.com/jacquesbeets/go-rest-api/utils"
 )
 
 func getEvents(context *gin.Context) {
@@ -18,8 +19,19 @@ func getEvents(context *gin.Context) {
 }
 
 func createEvent(context *gin.Context) {
+	token := context.Request.Header.Get("Authorization")
+	if token == "" {
+		context.JSON(http.StatusUnauthorized, gin.H{"error": "Unauthorized request"})
+		return
+	}
+	_, err := utils.VerifyToken(token)
+	if err != nil {
+		context.JSON(http.StatusUnauthorized, gin.H{"error": "Not authorized to create events"})
+		return
+	}
+
 	var event models.Event
-	err := context.ShouldBindJSON(&event)
+	err = context.ShouldBindJSON(&event)
 	if err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -81,16 +93,16 @@ func deleteEvent(context *gin.Context) {
 		return
 	}
 
-    event, err := models.GetEventByID(eventID)
-    if err != nil {
-        context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
+	event, err := models.GetEventByID(eventID)
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
 
-    err = event.Delete()
-    if err != nil {
-        context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
-        return
-    }
-    context.JSON(http.StatusOK, gin.H{"message": "Event deleted successfully"})
+	err = event.Delete()
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+	context.JSON(http.StatusOK, gin.H{"message": "Event deleted successfully"})
 }

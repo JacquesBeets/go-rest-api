@@ -1,5 +1,6 @@
 POST http://localhost:9090/events
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJleHAiOjE3MDc0MjgyMDMsInVzZXJJZCI6MH0.5LfbTN5h3H-UnckbV9YfR8p9_x6l6pFiEv1AfEWYoE8
 
 	# Title       string    `json:"title" binding:"required"`
 	# Description string    `json:"description" binding:"required"`
@@ -8,9 +9,9 @@ Content-Type: application/json
 	# UserID      int       `json:"userId"`
 
 {
-    "title": "Event 1",
-    "description": "Event 1 Description",
-    "location": "Event 1 Location",
-    "date_time": "2021-07-01T00:00:00Z",
+    "title": "Event 2",
+    "description": "Event 2 Description",
+    "location": "Event 2 Location",
+    "date_time": "2022-07-01T00:00:00Z",
     "userId": 1
 }
