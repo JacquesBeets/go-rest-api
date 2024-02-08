@@ -1,0 +1,9 @@
+POST http://localhost:9090/login
+	Content-Type: application/json
+	# Email    string `json:"email" binding:"required"`
+	# Password string `json:"password" binding:"required"`
+
+	{
+		"email": "test3@example.com",
+		"password": "password"
+	}

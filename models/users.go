@@ -1,6 +1,8 @@
 package models
 
 import (
+	"errors"
+
 	"github.com/jacquesbeets/go-rest-api/db"
 	"github.com/jacquesbeets/go-rest-api/utils"
 )
@@ -35,4 +37,27 @@ func (u User) Save() error {
 
 	u.ID = userID
 	return err
+}
+
+func (u User) FindByEmailAndPassword() error {
+	query := `
+	SELECT id, password
+	FROM users
+	WHERE email = ?`
+
+	row := db.DB.QueryRow(query, u.Email)
+
+	var retrievedPassword string
+	err := row.Scan(&u.ID, &retrievedPassword)
+
+	if err != nil {
+		return errors.New("credentials invalid")
+	}
+
+	paswordIsValid := utils.VerifyPassword(retrievedPassword, u.Password)
+
+	if !paswordIsValid {
+		return errors.New("credentials invalid")
+	}
+	return nil
 }
