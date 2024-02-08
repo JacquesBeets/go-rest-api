@@ -39,7 +39,7 @@ func (u User) Save() error {
 	return err
 }
 
-func (u User) FindByEmailAndPassword() error {
+func (u *User) FindByEmailAndPassword() error {
 	query := `
 	SELECT id, password
 	FROM users

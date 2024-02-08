@@ -1,6 +1,6 @@
 POST http://localhost:9090/events
 Content-Type: application/json
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXhhbXBsZS5jb20iLCJleHAiOjE3MDc0MjgyMDMsInVzZXJJZCI6MH0.5LfbTN5h3H-UnckbV9YfR8p9_x6l6pFiEv1AfEWYoE8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzA3NDMwMzY5LCJ1c2VySWQiOjJ9.fRGUlJMmxuRip1-P0npvMckBEH_8yTphwwv3bwvfhdc
 
 	# Title       string    `json:"title" binding:"required"`
 	# Description string    `json:"description" binding:"required"`
@@ -9,9 +9,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RAZXhhbXBs
 	# UserID      int       `json:"userId"`
 
 {
-    "title": "Event 2",
-    "description": "Event 2 Description",
-    "location": "Event 2 Location",
-    "date_time": "2022-07-01T00:00:00Z",
-    "userId": 1
+    "title": "Event 5",
+    "description": "Event 5 Description",
+    "location": "Event 5 Location",
+    "date_time": "5053-07-01T00:00:00Z"
 }

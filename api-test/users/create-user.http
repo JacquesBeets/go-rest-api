@@ -4,6 +4,6 @@ POST http://localhost:9090/signup
 	# Password string `json:"password" binding:"required"`
 
 	{
-		"email": "test@example.com",
+		"email": "test3@example.com",
 		"password": "password"
 	}
