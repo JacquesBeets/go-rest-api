@@ -1,0 +1,9 @@
+DELETE  http://localhost:9090/events/1/register
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QzQGV4YW1wbGUuY29tIiwiZXhwIjoxNzA3NTE3MDkyLCJ1c2VySWQiOjN9.H4VdYkLiC_wcY5lC58sMIi5Z_jyd1Sx6v70vYpvolqU
+
+	# Title       string    `json:"title" binding:"required"`
+	# Description string    `json:"description" binding:"required"`
+	# Location    string    `json:"location" binding:"required"`
+	# DateTime    time.Time `json:"date_time" binding:"required"`
+	# UserID      int       `json:"userId"`
