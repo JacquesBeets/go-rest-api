@@ -1,5 +1,6 @@
-PUT http://localhost:9090/events/1
+PUT http://localhost:9091/events/5
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3QzQGV4YW1wbGUuY29tIiwiZXhwIjoxNzA3NTEzMTA4LCJ1c2VySWQiOjN9._ZVHcuJE85_Agow9l4AAGoH20vgwgITPpfEslBbARc4
 
 	# ID          int       `json:"id"`
 	# Title       string    `json:"title" binding:"required"`
@@ -9,9 +10,9 @@ Content-Type: application/json
 	# UserID      int       `json:"userId"`
 
 {
-    "title": "Updated Title",
-    "description": "This is an updated event",
-    "location": "Event 1 Location",
-    "date_time": "2021-07-01T00:00:00Z",
-    "userId": 1
-}
+    "id": 5,
+    "title": "Event 7 Updated",
+    "description": "Event 7 Description",
+    "location": "Event 7 Location",
+    "date_time": "5053-07-01T00:00:00Z"
+  }
